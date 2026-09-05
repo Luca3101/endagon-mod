@@ -1,5 +1,6 @@
 package net.bruhmen007.mod;
 
+import net.bruhmen007.mod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
@@ -16,7 +17,12 @@ public class EndagonMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
+		ModItems.registerModItems();
 	}
+
+
+
+
 
 	public static Identifier id(String path) {
 		return Identifier.of(MOD_ID, path);
