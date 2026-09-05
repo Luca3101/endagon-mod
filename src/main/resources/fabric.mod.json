@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "endagon-mod",
+	"version": "${version}",
+	"name": "Endagon Mod",
+	"description": "Adds a new ore in the end to make better equipment from netherite",
+	"authors": [
+		"Bruhmen007"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/endagon-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.bruhmen007.mod.EndagonMod"
+		],
+		"fabric-datagen": [
+			"net.bruhmen007.mod.EndagonModDataGenerator"
+		],
+		"client": [
+			"net.bruhmen007.mod.EndagonModClient"
+		]
+	},
+	"mixins": [
+		"endagon-mod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
