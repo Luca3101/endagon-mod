@@ -25,8 +25,6 @@ public class ModItems {
     public static void registerModItems() {
         EndagonMod.LOGGER.info("Registring mod items for" + EndagonMod.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.add(VOID_CRYSTAL);
-        });
+
     }
 }

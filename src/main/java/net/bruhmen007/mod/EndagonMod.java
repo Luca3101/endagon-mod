@@ -1,6 +1,7 @@
 package net.bruhmen007.mod;
 
 import net.bruhmen007.mod.block.ModBlocks;
+import net.bruhmen007.mod.item.ModItemGroups;
 import net.bruhmen007.mod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -17,6 +18,7 @@ public class EndagonMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItemGroups.registerItemGroups();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

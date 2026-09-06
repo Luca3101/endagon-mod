@@ -13,11 +13,17 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-
+    ///Blocks
     public static final Block VOID_CRYSTAL_ORE = registerBlock("void_crystal_ore",
             new Block(AbstractBlock.Settings.create().requiresTool().strength(6.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
 
+    ///proprieties
+
+
+
+
+    ///init func
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(EndagonMod.MOD_ID, name), block);
@@ -33,8 +39,6 @@ public class ModBlocks {
     public static void registerModBlocks() {
         EndagonMod.LOGGER.info("Registring mod blocks for" + EndagonMod.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.add(ModBlocks.VOID_CRYSTAL_ORE);
-        });
+
     }
 }
