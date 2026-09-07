@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "endagon-mod:block/blazing_forge" },
+    "facing=east":  { "model": "endagon-mod:block/blazing_forge", "y": 90 },
+    "facing=south": { "model": "endagon-mod:block/blazing_forge", "y": 180 },
+    "facing=west":  { "model": "endagon-mod:block/blazing_forge", "y": 270 }
+  }
+}

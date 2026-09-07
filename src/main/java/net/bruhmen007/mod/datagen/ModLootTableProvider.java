@@ -15,5 +15,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(ModBlocks.VOID_CRYSTAL_ORE);
+        addDrop(ModBlocks.BLAZING_FORGE);
     }
 }

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "endagon-mod:block/blazing_forge_top",
+    "front": "endagon-mod:block/blazing_forge_front_off",
+    "side": "endagon-mod:block/blazing_forge_side",
+    "bottom": "endagon-mod:block/blazing_forge_bottom"
+  }
+}

@@ -17,10 +17,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(ModBlocks.VOID_CRYSTAL_ORE);
+                .add(ModBlocks.VOID_CRYSTAL_ORE)
+                .add(ModBlocks.BLAZING_FORGE);
 
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add((ModBlocks.VOID_CRYSTAL_ORE));
+                .add(ModBlocks.VOID_CRYSTAL_ORE)
+                .add(ModBlocks.BLAZING_FORGE);
     }
 }

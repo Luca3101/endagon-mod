@@ -16,10 +16,13 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.VOID_CRYSTAL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BLAZING_FORGE);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.VOID_CRYSTAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOID_CRYSTAL_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDAGONIUM_INGOT, Models.GENERATED);
     }
 }

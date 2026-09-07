@@ -19,8 +19,12 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.endagon-mod.void_crystal"))
                     .entries((displayContext, entries) -> {
                                      /// ADD all items in the menu
-                        entries.add(ModItems.VOID_CRYSTAL);
                         entries.add(ModBlocks.VOID_CRYSTAL_ORE);
+                        entries.add(ModItems.VOID_CRYSTAL);
+                        entries.add(ModItems.VOID_CRYSTAL_DUST);
+                        entries.add(ModItems.ENDAGONIUM_INGOT);
+                        entries.add(ModBlocks.BLAZING_FORGE);
+
                     })
                     .build());
 

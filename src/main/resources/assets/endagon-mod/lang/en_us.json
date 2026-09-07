@@ -1,8 +1,11 @@
 {
   "item.endagon-mod.void_crystal": "Void Crystal",
+  "item.endagon-mod.void_crystal_dust": "Void Crystal Dust",
+  "item.endagon-mod.endagonium_ingot": "Endagonium Ingot",
 
 
   "block.endagon-mod.void_crystal_ore": "Void Crystal Ore",
+  "block.endagon-mod.blazing_forge": "Blazing Forge",
 
   "itemgroup.endagon-mod.void_crystal": "Endagon Mod"
 }
