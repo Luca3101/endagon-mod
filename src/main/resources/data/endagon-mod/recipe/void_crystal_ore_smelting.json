@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "endagon-mod:void_crystal_ore"
+  },
+  "result": {
+    "id": "endagon-mod:void_crystal"
+  },
+  "experience": 0.7,
+  "cookingtime": 1600
+}

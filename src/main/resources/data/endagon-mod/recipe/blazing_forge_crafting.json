@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "$": {
+      "item": "minecraft:nether_star"
+    },
+    "%": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "pattern": [
+    "###",
+    "#$#",
+    "#%#"
+  ],
+
+  "result": {
+    "count": 1,
+    "id": "endagon-mod:blazing_forge"
+
+  }
+}
