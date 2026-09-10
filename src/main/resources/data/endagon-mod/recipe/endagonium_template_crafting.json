@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "$": {
+      "item": "minecraft:end_stone"
+    },
+    "%": {
+      "item": "endagon-mod:endagonium_template"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "#$#",
+    "###"
+  ],
+
+  "result": {
+    "count": 2,
+    "id": "endagon-mod:endagonium_template"
+
+  }
+}

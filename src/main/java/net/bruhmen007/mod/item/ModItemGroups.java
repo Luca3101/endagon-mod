@@ -24,6 +24,7 @@ public class ModItemGroups {
                         entries.add(ModItems.VOID_CRYSTAL_DUST);
                         entries.add(ModItems.ENDAGONIUM_INGOT);
                         entries.add(ModBlocks.BLAZING_FORGE);
+                        entries.add(ModItems.ENDAGONIUM_TEMPLATE);
 
                     })
                     .build());

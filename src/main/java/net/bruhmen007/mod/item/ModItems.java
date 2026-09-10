@@ -13,7 +13,7 @@ public class ModItems {
     public static final Item VOID_CRYSTAL = registerItem("void_crystal", new Item(new Item.Settings()));
     public static final Item VOID_CRYSTAL_DUST = registerItem("void_crystal_dust", new Item((new Item.Settings())));
     public static final Item ENDAGONIUM_INGOT = registerItem("endagonium_ingot", new Item((new Item.Settings())));
-
+    public static final Item ENDAGONIUM_TEMPLATE =registerItem("endagonium_template", new Item(new Item.Settings()));
 
 
 

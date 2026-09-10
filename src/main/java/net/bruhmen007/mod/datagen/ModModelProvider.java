@@ -24,5 +24,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.VOID_CRYSTAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.VOID_CRYSTAL_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDAGONIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDAGONIUM_TEMPLATE, Models.GENERATED);
     }
 }
