@@ -5,8 +5,20 @@
   "item.endagon-mod.endagonium_template": "Endagonium Template",
 
 
+
+  "item.endagon-mod.endagonium_sword": "Endagonium Sword",
+  "item.endagon-mod.endagonium_axe": "Endagonium Axe",
+  "item.endagon-mod.endagonium_pickaxe": "Endagonium Pickaxe",
+  "item.endagon-mod.endagonium_shovel": "Endagonium Shovel",
+  "item.endagon-mod.endagonium_hoe": "Endagonium Hoe",
+
+
+
+
   "block.endagon-mod.void_crystal_ore": "Void Crystal Ore",
   "block.endagon-mod.blazing_forge": "Blazing Forge",
+
+
 
   "itemgroup.endagon-mod.void_crystal": "Endagon Mod"
 }

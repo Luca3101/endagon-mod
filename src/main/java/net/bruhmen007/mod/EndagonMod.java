@@ -22,6 +22,7 @@ public class EndagonMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
 	}
 
 

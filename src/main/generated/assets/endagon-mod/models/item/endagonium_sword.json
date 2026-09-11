@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "endagon-mod:item/endagonium_sword"
+  }
+}

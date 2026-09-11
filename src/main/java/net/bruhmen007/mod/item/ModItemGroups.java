@@ -25,6 +25,11 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDAGONIUM_INGOT);
                         entries.add(ModBlocks.BLAZING_FORGE);
                         entries.add(ModItems.ENDAGONIUM_TEMPLATE);
+                        entries.add(ModItems.ENDAGONIUM_SWORD);
+                        entries.add(ModItems.ENDAGONIUM_AXE);
+                        entries.add(ModItems.ENDAGONIUM_PICKAXE);
+                        entries.add(ModItems.ENDAGONIUM_SHOVEL);
+                        entries.add(ModItems.ENDAGONIUM_HOE);
 
                     })
                     .build());

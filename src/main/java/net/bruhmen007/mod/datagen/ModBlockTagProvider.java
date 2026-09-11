@@ -1,6 +1,7 @@
 package net.bruhmen007.mod.datagen;
 
 import net.bruhmen007.mod.block.ModBlocks;
+import net.bruhmen007.mod.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -24,5 +25,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.VOID_CRYSTAL_ORE)
                 .add(ModBlocks.BLAZING_FORGE);
+
+        getOrCreateTagBuilder(ModTags.Blocks.NEEDS_ENDAGONIUM_TOOL)
+                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+
+
     }
 }

@@ -25,5 +25,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.VOID_CRYSTAL_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDAGONIUM_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDAGONIUM_TEMPLATE, Models.GENERATED);
+
+
+        itemModelGenerator.register(ModItems.ENDAGONIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDAGONIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDAGONIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDAGONIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDAGONIUM_HOE, Models.HANDHELD);
     }
 }
