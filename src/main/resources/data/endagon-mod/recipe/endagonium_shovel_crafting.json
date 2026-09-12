@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "endagon-mod:endagonium_template"
+  },
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "addition": {
+    "item": "endagon-mod:endagonium_ingot"
+  },
+  "result": {
+    "id": "endagon-mod:endagonium_shovel"
+  }
+}

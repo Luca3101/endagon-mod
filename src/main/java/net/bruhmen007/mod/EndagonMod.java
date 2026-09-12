@@ -3,6 +3,7 @@ package net.bruhmen007.mod;
 import net.bruhmen007.mod.block.ModBlocks;
 import net.bruhmen007.mod.item.ModItemGroups;
 import net.bruhmen007.mod.item.ModItems;
+import net.bruhmen007.mod.util.ModLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
@@ -22,7 +23,7 @@ public class EndagonMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-
+		ModLootTableModifiers.modifyLootTables();
 	}
 
 

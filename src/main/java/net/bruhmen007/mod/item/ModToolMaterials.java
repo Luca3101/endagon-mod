@@ -13,7 +13,7 @@ import net.minecraft.registry.tag.TagKey;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    ENDAGONIUM(ModTags.Blocks.INCORRECT_FOR_ENDAGONIUM_TOOL, 2591, 11.5F, 5.0F, 18, () -> Ingredient.ofItems(ModItems.ENDAGONIUM_INGOT));
+    ENDAGONIUM(ModTags.Blocks.INCORRECT_FOR_ENDAGONIUM_TOOL, 2591, 13.0F, 5.0F, 18, () -> Ingredient.ofItems(ModItems.ENDAGONIUM_INGOT));
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;
