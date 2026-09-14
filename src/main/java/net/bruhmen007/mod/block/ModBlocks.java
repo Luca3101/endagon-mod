@@ -1,11 +1,10 @@
 package net.bruhmen007.mod.block;
 
 import net.bruhmen007.mod.EndagonMod;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.bruhmen007.mod.block.custom.BlazingForgeBlock;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -18,18 +17,7 @@ public class ModBlocks {
     public static final Block VOID_CRYSTAL_ORE = registerBlock("void_crystal_ore",
             new Block(AbstractBlock.Settings.create().requiresTool().strength(6.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
     public static final Block BLAZING_FORGE = registerBlock("blazing_forge",
-            new Block(AbstractBlock.Settings.create().requiresTool().strength(4.0F).sounds(BlockSoundGroup.STONE)) {
-
-                @Override
-                protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-                    builder.add(HorizontalFacingBlock.FACING);
-                }
-
-                @Override
-                public BlockState getPlacementState(ItemPlacementContext ctx) {
-                    return this.getDefaultState().with(HorizontalFacingBlock.FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-                }
-            });
+            new BlazingForgeBlock(AbstractBlock.Settings.create().requiresTool().strength(4.0F).sounds(BlockSoundGroup.STONE)));
 
     ///proprieties
 

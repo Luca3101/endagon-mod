@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "endagon-mod:block/blazing_forge" },
-    "facing=east":  { "model": "endagon-mod:block/blazing_forge", "y": 90 },
-    "facing=south": { "model": "endagon-mod:block/blazing_forge", "y": 180 },
-    "facing=west":  { "model": "endagon-mod:block/blazing_forge", "y": 270 }
+    "facing=north,lit=false": { "model": "endagon-mod:block/blazing_forge" },
+    "facing=east,lit=false":  { "model": "endagon-mod:block/blazing_forge", "y": 90 },
+    "facing=south,lit=false": { "model": "endagon-mod:block/blazing_forge", "y": 180 },
+    "facing=west,lit=false":  { "model": "endagon-mod:block/blazing_forge", "y": 270 },
+    "facing=north,lit=true":  { "model": "endagon-mod:block/blazing_forge_on" },
+    "facing=east,lit=true":   { "model": "endagon-mod:block/blazing_forge_on", "y": 90 },
+    "facing=south,lit=true":  { "model": "endagon-mod:block/blazing_forge_on", "y": 180 },
+    "facing=west,lit=true":   { "model": "endagon-mod:block/blazing_forge_on", "y": 270 }
   }
 }

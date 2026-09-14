@@ -1,6 +1,7 @@
 package net.bruhmen007.mod;
 
 import net.bruhmen007.mod.block.ModBlocks;
+import net.bruhmen007.mod.block.entity.ModBlockEntities;
 import net.bruhmen007.mod.item.ModItemGroups;
 import net.bruhmen007.mod.item.ModItems;
 import net.bruhmen007.mod.util.ModLootTableModifiers;
@@ -24,6 +25,7 @@ public class EndagonMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModLootTableModifiers.modifyLootTables();
+		ModBlockEntities.registerBlockEntities();
 	}
 
 
