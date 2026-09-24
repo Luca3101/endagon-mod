@@ -7,15 +7,21 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -29,7 +35,6 @@ public class BlazingForgeBlock extends BlockWithEntity implements BlockEntityPro
 
     public BlazingForgeBlock(Settings settings) {
         super(settings);
-        // Default state must match all properties added in appendProperties
         this.setDefaultState(this.getStateManager().getDefaultState()
                 .with(FACING, Direction.NORTH)
                 .with(LIT, false));
@@ -42,7 +47,6 @@ public class BlazingForgeBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        // MUST register BOTH properties here
         builder.add(FACING, LIT);
     }
 
@@ -67,14 +71,13 @@ public class BlazingForgeBlock extends BlockWithEntity implements BlockEntityPro
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (!state.get(LIT)) {
-            return; // Don't spawn particles if the forge is off
+            return;
         }
 
         double x = (double) pos.getX() + 0.5;
         double y = (double) pos.getY();
         double z = (double) pos.getZ() + 0.5;
 
-        // Play subtle crackling furnace sound occasionally
         if (random.nextInt(10) == 0) {
             world.playSound(x, y, z, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
         }
@@ -82,7 +85,7 @@ public class BlazingForgeBlock extends BlockWithEntity implements BlockEntityPro
         Direction direction = state.get(FACING);
         Direction.Axis axis = direction.getAxis();
 
-        // Position particles on the front face of the block
+
         double offset = 0.52;
         double randomOffset = random.nextDouble() * 0.6 - 0.3;
 
@@ -90,17 +93,46 @@ public class BlazingForgeBlock extends BlockWithEntity implements BlockEntityPro
         double particleY = random.nextDouble() * 6.0 / 16.0;
         double particleZ = axis == Direction.Axis.Z ? (double) direction.getOffsetZ() * offset : randomOffset;
 
-        // Spawn smoke and flame particles on the client
+
         world.addParticle(ParticleTypes.SMOKE, x + particleX, y + particleY, z + particleZ, 0.0, 0.0, 0.0);
         world.addParticle(ParticleTypes.FLAME, x + particleX, y + particleY, z + particleZ, 0.0, 0.0, 0.0);
     }
 
-    /*@Nullable
+    @Override
+    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if(state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if(blockEntity instanceof BlazingForgeBlockEntity) {
+                ItemScatterer.spawn(world,pos,((BlazingForgeBlockEntity) blockEntity));
+                world.updateComparators(pos, this);
+            }
+        }
+        super.onStateReplaced(state, world, pos, newState, moved);
+    }
+
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
+                                             PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if(!world.isClient) {
+            NamedScreenHandlerFactory screenHandlerFactory = ((BlazingForgeBlockEntity) world.getBlockEntity(pos));
+            if(screenHandlerFactory != null) {
+                player.openHandledScreen(screenHandlerFactory);
+            }
+        }
+        return ItemActionResult.SUCCESS;
+    }
+
+
+    @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        if(world.isClient()) {
+            return null;
+        }
+
         return validateTicker(type, ModBlockEntities.BLAZING_FORGE_BE,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }*/
+    }
 }
 
 

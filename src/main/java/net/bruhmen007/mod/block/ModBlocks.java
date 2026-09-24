@@ -19,7 +19,6 @@ public class ModBlocks {
     public static final Block BLAZING_FORGE = registerBlock("blazing_forge",
             new BlazingForgeBlock(AbstractBlock.Settings.create().requiresTool().strength(4.0F).sounds(BlockSoundGroup.STONE)));
 
-    ///proprieties
 
 
 

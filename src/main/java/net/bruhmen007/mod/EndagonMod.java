@@ -4,6 +4,7 @@ import net.bruhmen007.mod.block.ModBlocks;
 import net.bruhmen007.mod.block.entity.ModBlockEntities;
 import net.bruhmen007.mod.item.ModItemGroups;
 import net.bruhmen007.mod.item.ModItems;
+import net.bruhmen007.mod.screen.ModScreenHandlers;
 import net.bruhmen007.mod.util.ModLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
 
@@ -26,6 +27,7 @@ public class EndagonMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModLootTableModifiers.modifyLootTables();
 		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 	}
 
 
