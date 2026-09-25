@@ -1,10 +1,12 @@
 package net.bruhmen007.mod.block.entity.custom;
 
+import net.bruhmen007.mod.block.custom.BlazingForgeBlock;
 import net.bruhmen007.mod.block.entity.ImplementedInventory;
 import net.bruhmen007.mod.block.entity.ModBlockEntities;
 import net.bruhmen007.mod.item.ModItems;
 import net.bruhmen007.mod.screen.custom.BlazingForgeScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,7 +40,7 @@ public class BlazingForgeBlockEntity extends BlockEntity implements ImplementedI
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 200;
 
 
     public BlazingForgeBlockEntity(BlockPos pos, BlockState state) {
@@ -119,30 +121,36 @@ public class BlazingForgeBlockEntity extends BlockEntity implements ImplementedI
 
 
     public void tick(World world, BlockPos pos, BlockState state) {
+        boolean isCrafting = hasRecipe();
 
-        if(hasRecipe()) {
+        if (state.get(BlazingForgeBlock.LIT) != isCrafting) {
+            world.setBlockState(pos, state.with(BlazingForgeBlock.LIT, isCrafting), Block.NOTIFY_ALL);
+        }
+
+        if (isCrafting) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
 
-            if(hasCraftingFinished()) {
+            if (hasCraftingFinished()) {
                 craftItem();
                 resetProgress();
             }
-        }
-        else {
+        } else {
             resetProgress();
         }
     }
 
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = 72;
+        this.maxProgress = 200;
     }
 
     private void craftItem() {
         ItemStack output = new ItemStack(ModItems.ENDAGONIUM_INGOT, 1);
 
         this.removeStack(INPUT_SLOT1, 1);
+        this.removeStack(INPUT_SLOT2, 1);
+        this.removeStack(INPUT_SLOT3, 1);
         this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(), this.getStack(OUTPUT_SLOT).getCount() + output.getCount()));
     }
 
@@ -176,5 +184,17 @@ public class BlazingForgeBlockEntity extends BlockEntity implements ImplementedI
         return maxCount >= currentCount + count;
     }
 
-
+    @Override
+    public boolean isValid(int slot, ItemStack stack) {
+        if (slot == INPUT_SLOT1) {
+            return stack.isOf(Items.NETHERITE_INGOT);
+        } else if (slot == INPUT_SLOT2) {
+            return stack.isOf(ModItems.VOID_CRYSTAL_DUST);
+        } else if (slot == INPUT_SLOT3) {
+            return stack.isOf(Items.BLAZE_POWDER);
+        } else if (slot == OUTPUT_SLOT) {
+            return false; // Players and hoppers cannot insert items into the output slot directly
+        }
+        return isValid(slot, stack);
+    }
 }

@@ -1,12 +1,14 @@
 package net.bruhmen007.mod.screen.custom;
 
 import net.bruhmen007.mod.block.entity.custom.BlazingForgeBlockEntity;
+import net.bruhmen007.mod.item.ModItems;
 import net.bruhmen007.mod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -30,10 +32,36 @@ public class BlazingForgeScreenHandler extends ScreenHandler {
         this.blockEntity = ((BlazingForgeBlockEntity) blockEntity);
         this.propertyDelegate = arrayPropertyDelegate;
 
-        this.addSlot(new Slot(inventory, 0, 54, 34));
-        this.addSlot(new Slot(inventory, 1, 64, 34));
-        this.addSlot(new Slot(inventory, 2, 59, 44));
-        this.addSlot(new Slot(inventory, 3, 104, 39));
+        this.addSlot(new Slot(inventory, 0, 22, 21) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isOf(Items.NETHERITE_INGOT);
+            }
+        });
+
+
+        this.addSlot(new Slot(inventory, 1, 52, 21) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isOf(ModItems.VOID_CRYSTAL_DUST);
+            }
+        });
+
+
+        this.addSlot(new Slot(inventory, 2, 37, 50) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.isOf(Items.BLAZE_POWDER);
+            }
+        });
+
+
+        this.addSlot(new Slot(inventory, 3, 113, 34) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
 
 
         addPlayerInventory(playerInventory);
@@ -97,4 +125,6 @@ public class BlazingForgeScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
+
+
 }
